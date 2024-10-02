@@ -13,6 +13,11 @@
             <div class="p-6 text-gray-900">
                 @foreach ($tweets as $tweet)
                 <div class="mb-4 p-4 bg-gray-100 rounded-lg">
+                    <!-- 画像が存在する場合に表示 -->
+                    @if ($tweet->image_path)
+                    <img src="{{ asset('storage/' . $tweet->image_path) }}" alt="Tweet Image" class="w-48 h-48 object-cover">
+                    @endif
+                    
                     <p class="text-gray-800 whitespace-pre-wrap" id="tweet_{{ $tweet->id }}"></p>
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
@@ -23,11 +28,6 @@
                         document.getElementById('tweet_{{ $tweet->id }}').textContent = formattedText;
                         });
                     </script>
-                    
-                    <!-- 画像が存在する場合に表示 -->
-                    @if ($tweet->image_path)
-                    <img src="{{ asset('storage/' . $tweet->image_path) }}" alt="Tweet Image" class="w-48 h-48 object-cover">
-                    @endif
                     
                     <a href="{{ route('mypages.show', ['user' => $tweet->user->id]) }}">
                         投稿者: {{ $tweet->user->name }}

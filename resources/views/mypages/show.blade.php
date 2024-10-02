@@ -17,6 +17,10 @@
         <div class="p-6 text-gray-900">
           @foreach ($tweets as $tweet)
           <div class="mb-4 p-4 bg-gray-100 rounded-lg">
+            <!-- 画像が存在する場合に表示 -->
+            @if ($tweet->image_path)
+            <img src="{{ asset('storage/' . $tweet->image_path) }}" alt="Tweet Image" class="w-48 h-48 object-cover">
+            @endif
             <p class="text-gray-800">{{ $tweet->tweet }}</p>
             <p class="text-gray-600 text-sm">投稿者: {{ $tweet->user->name }}</p>
             <a href="{{ route('tweets.show', $tweet) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
