@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'CheerParK') }}</title>
         
         <!-- JPG形式のファビコンを設定 -->
-        <link rel="icon" href="{{ asset('storage/cheerpark.jpg') }}" type="image/jpeg">
+        <link rel="icon" href="{{ asset('storage/favicon.jpg') }}" type="image/jpeg">
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
