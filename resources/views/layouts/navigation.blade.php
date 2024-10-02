@@ -28,10 +28,6 @@
             <x-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
                 {{ __('マイページ') }}
             </x-nav-link>
-            
-            <x-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
-                {{ __('マイページ') }}
-            </x-nav-link>
     
             <!-- 項目追加↑↑↑↑ -->
                 </div>
@@ -105,10 +101,6 @@
                 {{ __('ユーザー一覧') }}
             </x-nav-link>
                     
-            <x-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
-                {{ __('マイページ') }}
-            </x-nav-link>
-            
             <x-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
                 {{ __('マイページ') }}
             </x-nav-link>
