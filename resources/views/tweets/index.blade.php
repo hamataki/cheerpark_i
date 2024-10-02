@@ -23,9 +23,15 @@
                         document.getElementById('tweet_{{ $tweet->id }}').textContent = formattedText;
                         });
                     </script>
+                    
+                    <!-- 画像が存在する場合に表示 -->
+                    @if ($tweet->image_path)
+                    <img src="{{ asset('storage/' . $tweet->image_path) }}" alt="Tweet Image" class="w-48 h-48 object-cover">
+                    @endif
+                    
                     <a href="{{ route('mypages.show', ['user' => $tweet->user->id]) }}">
                         投稿者: {{ $tweet->user->name }}
-                        <img src="{{ $tweet->user->profile_image }}" alt="{{ $tweet->user->name }}" class="text-gray-600 text-sm">
+                        <img src="{{ $tweet->user->profile_image }}" class="text-gray-600 text-sm">
                     </a>
                     <a href="{{ route('tweets.show', $tweet) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
                     <div class="flex">
