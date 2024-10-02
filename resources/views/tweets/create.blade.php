@@ -20,6 +20,16 @@
               <span class="text-red-500 text-xs italic">{{ $message }}</span>
               @enderror
             </div>
+            
+            <!-- 画像アップロード用の入力フィールドを追加 -->
+            <div class="mb-4">
+              <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+              <input type="file" name="image" id="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+              @error('image')
+              <span class="text-red-500 text-xs italic">{{ $message }}</span>
+              @enderror
+            </div>
+            
             <button type="submit" class="bg-sky-500 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Post</button>
           </form>
         </div>

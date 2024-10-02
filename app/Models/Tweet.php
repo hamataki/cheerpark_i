@@ -10,7 +10,7 @@ class Tweet extends Model
     use HasFactory;
     
     // ↓1行追加
-  protected $fillable = ['tweet', 'user_id'];
+  protected $fillable = ['tweet', 'user_id','image_path'];
 
   // 以下userメソッド追加
   public function user()

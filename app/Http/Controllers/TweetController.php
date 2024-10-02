@@ -35,12 +35,26 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['tweet' => 'required|max:255',]);
-        
-        $request->user()->tweets()->create($request->all());
-        // $request->user()->tweets()->create($request->only('tweet')); // ←これでもok
-        
-        return redirect()->route('tweets.index');
+        // バリデーションルールを定義
+    $request->validate([
+        'tweet' => 'required|max:255',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 画像のバリデーションを追加
+    ]);
+
+    // 画像を保存し、パスを取得
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        // 画像を 'public/images' ディレクトリに保存し、パスを取得
+        $imagePath = $request->file('image')->store('images', 'public');
+    }
+
+    // ツイートを作成し、データベースに保存
+    $request->user()->tweets()->create([
+        'tweet' => $request->input('tweet'),
+        'image_path' => $imagePath, // 画像パスを追加
+    ]);
+
+    return redirect()->route('tweets.index')->with('success', 'Tweet successfully posted!');
     }
 
     /**
