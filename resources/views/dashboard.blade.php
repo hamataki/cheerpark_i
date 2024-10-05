@@ -10,7 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("ここは海外挑戦の情報不足を実際に行ってる選手に直接相談することで解決するマッチングサイトです。") }}
-                    {{ __("選手は海外生活や自分の思い、試合結果などの投稿をお願いします。") }}
+                </div>
+                <div class="p-6 text-gray-900">
+                {{ __("選手は海外生活や自分の思い、試合結果などの投稿をお願いします。") }}
+                </div>
+                <div class="p-6 text-gray-900">
                     {{ __("学生はサッカーノートとして投稿してみてください。") }}
                 </div>
             </div>
