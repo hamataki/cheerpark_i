@@ -83,27 +83,27 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Home') }}
             </x-responsive-nav-link>
             
             <!-- ⭐️ 2項目追加↓↓↓ ⭐️ -->
             <x-responsive-nav-link :href="route('tweets.index')" :active="request()->routeIs('tweets.index')">
-                {{ __('Tweet一覧') }}
+                {{ __('Monologue一覧') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('tweets.create')" :active="request()->routeIs('tweets.create')">
-                {{ __('Tweet作成') }}
+                {{ __('Monologue作成') }}
             </x-responsive-nav-link>
             <!-- ⭐️ 2項目追加↑↑↑↑ ⭐️ -->
             
             <!-- 項目追加↓↓↓ -->
             
-            <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                 {{ __('ユーザー一覧') }}
-            </x-nav-link>
+            </x-responsive-nav-link>
                     
-            <x-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
+            <x-responsive-nav-link :href="route('mypages.show', ['user' => Auth::user()->id])" :active="request()->routeIs('mypages.show')">
                 {{ __('マイページ') }}
-            </x-nav-link>
+            </x-responsive-nav-link>
             
             <!-- 項目追加↑↑↑↑ -->
         </div>
